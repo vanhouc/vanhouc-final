@@ -26,14 +26,8 @@ namespace Music
             {
                 Section selectedSection;
                 Enum.TryParse<Section>(combxSections.SelectedValue.ToString(), out selectedSection);
-                if (selectedSection != null)
-                {
-                    listBox1.Items.Clear();
-                    foreach (Instrument i in repo.GetInstruments(selectedSection))
-                    {
-                        listBox1.Items.Add(i.ToString());
-                    }
-                }
+                listBox1.Items.Clear();
+                listBox1.Items.AddRange(repo.GetInstruments(selectedSection).Select(x => x.ToString()).ToArray());
             }
         }
     }

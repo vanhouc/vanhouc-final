@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.lblAppTitle = new System.Windows.Forms.Label();
-            this.combxSections = new System.Windows.Forms.ComboBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.grpTypes = new System.Windows.Forms.GroupBox();
             this.SuspendLayout();
             // 
             // lblAppTitle
@@ -43,15 +43,6 @@
             this.lblAppTitle.TabIndex = 0;
             this.lblAppTitle.Text = "Music";
             // 
-            // combxSections
-            // 
-            this.combxSections.FormattingEnabled = true;
-            this.combxSections.Location = new System.Drawing.Point(12, 67);
-            this.combxSections.Name = "combxSections";
-            this.combxSections.Size = new System.Drawing.Size(175, 21);
-            this.combxSections.TabIndex = 1;
-            this.combxSections.SelectedValueChanged += new System.EventHandler(this.combxSections_SelectedValueChanged);
-            // 
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
@@ -60,13 +51,22 @@
             this.listBox1.Size = new System.Drawing.Size(253, 368);
             this.listBox1.TabIndex = 2;
             // 
+            // grpTypes
+            // 
+            this.grpTypes.Location = new System.Drawing.Point(12, 67);
+            this.grpTypes.Name = "grpTypes";
+            this.grpTypes.Size = new System.Drawing.Size(175, 368);
+            this.grpTypes.TabIndex = 3;
+            this.grpTypes.TabStop = false;
+            this.grpTypes.Text = "Types";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(458, 452);
+            this.Controls.Add(this.grpTypes);
             this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.combxSections);
             this.Controls.Add(this.lblAppTitle);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -78,8 +78,8 @@
         #endregion
 
         private System.Windows.Forms.Label lblAppTitle;
-        private System.Windows.Forms.ComboBox combxSections;
         private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.GroupBox grpTypes;
     }
 }
 

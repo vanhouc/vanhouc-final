@@ -12,9 +12,12 @@ namespace Music
 {
     public partial class Form1 : Form
     {
+        DataRepository repo;
         public Form1()
         {
             InitializeComponent();
+            repo = new DataRepository();
+            combxSections.DataSource = Enum.GetNames(typeof(Section));
         }
     }
 }

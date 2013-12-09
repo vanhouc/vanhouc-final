@@ -30,7 +30,7 @@ namespace Music
             using (dbconn = new SqlConnection(Music.Properties.Settings.Default.orchestraConnection))
             {
                 dbconn.Open();
-                dbcomm = new SqlCommand("select Instrument, Type from Instruments where Type = " + "'" + selectedSection.ToString() + "'" + " order by Type asc", dbconn);
+                dbcomm = new SqlCommand(String.Format("select Instrument, Type from Instruments where Type = '{0}' order by Type asc",selectedSection.ToString()), dbconn);
                 dbreader = dbcomm.ExecuteReader();
                 List<Instrument> instruments = new List<Instrument>();
                 while (dbreader.Read())

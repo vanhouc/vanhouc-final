@@ -17,15 +17,23 @@ namespace Music
         {
             InitializeComponent();
             repo = new DataRepository();
-            combxSections.DataSource = Enum.GetNames(typeof(Section));
+            int locationY = 20;
+            foreach(string s in Enum.GetNames(typeof(Section)))
+            {
+                CheckBox newCheck = new CheckBox();
+                newCheck.Text = s;
+                newCheck.Location = new Point(10, locationY);
+                locationY += newCheck.Size.Height;
+                newCheck.CheckedChanged += newCheck_CheckedChanged;
+                grpTypes.Controls.Add(newCheck);
+            }
         }
 
-        private void combxSections_SelectedValueChanged(object sender, EventArgs e)
+        private void newCheck_CheckedChanged(object sender, EventArgs e)
         {
-            if (Enum.GetNames(typeof(Section)).Contains(combxSections.SelectedValue.ToString()))
+            string[] selectedNames = grpTypes.Controls.OfType<CheckBox>().Where(x => x.Checked).Select(x => x.Text).ToArray();
             {
-                Section selectedSection;
-                Enum.TryParse<Section>(combxSections.SelectedValue.ToString(), out selectedSection);
+                Section[] selectedSection = selectedNames.Select(x => (Section)Enum.Parse(typeof(Section), x)).ToArray();
                 listBox1.Items.Clear();
                 listBox1.Items.AddRange(repo.GetInstruments(selectedSection).Select(x => x.ToString()).ToArray());
             }

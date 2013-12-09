@@ -25,27 +25,27 @@ namespace Music
         /// </summary>
         /// <param name="selectedSection">A section to filter instruments by</param>
         /// <returns></returns>
-        public List<Instrument> GetInstruments(Section selectedSection)
-        {
-            using (dbconn = new SqlConnection(Music.Properties.Settings.Default.orchestraConnection))
-            {
-                dbconn.Open();
-                dbcomm = new SqlCommand(String.Format("select Instrument, Type from Instruments where Type = '{0}' order by Type asc",selectedSection.ToString()), dbconn);
-                dbreader = dbcomm.ExecuteReader();
-                List<Instrument> instruments = new List<Instrument>();
-                while (dbreader.Read())
-                {
-                    string instrumentName = dbreader["Instrument"].ToString();
-                    Section instrumentType;
-                    if (Enum.TryParse<Section>(dbreader["Type"].ToString(), true, out instrumentType))
-                        instruments.Add(new Instrument(instrumentName, instrumentType));
-                    else
-                        instruments.Add(new Instrument());
-                }
-                dbconn.Close();
-                return instruments;
-            }
-        }
+        //public List<Instrument> GetInstruments(Section selectedSection)
+        //{
+        //    using (dbconn = new SqlConnection(Music.Properties.Settings.Default.orchestraConnection))
+        //    {
+        //        dbconn.Open();
+        //        dbcomm = new SqlCommand(String.Format("select Instrument, Type from Instruments where Type = '{0}' order by Type asc",selectedSection.ToString()), dbconn);
+        //        dbreader = dbcomm.ExecuteReader();
+        //        List<Instrument> instruments = new List<Instrument>();
+        //        while (dbreader.Read())
+        //        {
+        //            string instrumentName = dbreader["Instrument"].ToString();
+        //            Section instrumentType;
+        //            if (Enum.TryParse<Section>(dbreader["Type"].ToString(), true, out instrumentType))
+        //                instruments.Add(new Instrument(instrumentName, instrumentType));
+        //            else
+        //                instruments.Add(new Instrument());
+        //        }
+        //        dbconn.Close();
+        //        return instruments;
+        //    }
+        //}
         /// <summary>
         /// Gets a list of Instrument objects filtered by an array of Sections
         /// </summary>
@@ -56,7 +56,7 @@ namespace Music
             using (dbconn = new SqlConnection(Music.Properties.Settings.Default.orchestraConnection))
             {
                 dbconn.Open();
-                dbcomm = new SqlCommand(String.Format("select Instrument, Type from Instruments where Type in ({0}) order by Type asc", String.Join(",",selectedSection), dbconn));
+                dbcomm = new SqlCommand(String.Format("select Instrument, Type from Instruments where Type in({0}) order by Type asc", String.Join(",",selectedSection.Select(x => String.Format("'{0}'",x.ToString())).ToArray())), dbconn);
                 dbreader = dbcomm.ExecuteReader();
                 List<Instrument> instruments = new List<Instrument>();
                 while (dbreader.Read())
@@ -68,7 +68,6 @@ namespace Music
                     else
                         instruments.Add(new Instrument());
                 }
-                dbconn.Close();
                 return instruments;
             }
         }

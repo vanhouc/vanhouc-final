@@ -14,7 +14,7 @@ namespace Music
     /// <summary>
     /// A Class representing an Instrument
     /// </summary>
-    class Instrument
+    public class Instrument
     {
         TextInfo myTI = new CultureInfo("en-US", false).TextInfo;
         Regex reg = new Regex("[A-Z]+\\w*");

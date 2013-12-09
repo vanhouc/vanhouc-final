@@ -75,26 +75,26 @@ namespace Music
         /// Returns a list of Instrument objects representing all the instruments in the database
         /// </summary>
         /// <returns></returns>
-        public List<Instrument> GetInstruments()
-        {
-            using (dbconn = new SqlConnection(Music.Properties.Settings.Default.orchestraConnection))
-            {
-                dbconn.Open();
-                dbcomm = new SqlCommand(String.Format("select Instrument, Type from Instruments order by Type asc"), dbconn);
-                dbreader = dbcomm.ExecuteReader();
-                List<Instrument> instruments = new List<Instrument>();
-                while (dbreader.Read())
-                {
-                    string instrumentName = dbreader["Instrument"].ToString();
-                    Section instrumentType;
-                    if (Enum.TryParse<Section>(dbreader["Type"].ToString(), true, out instrumentType))
-                        instruments.Add(new Instrument(instrumentName, instrumentType));
-                    else
-                        instruments.Add(new Instrument());
-                }
-                dbconn.Close();
-                return instruments;
-            }
-        }
+        //public List<Instrument> GetInstruments()
+        //{
+        //    using (dbconn = new SqlConnection(Music.Properties.Settings.Default.orchestraConnection))
+        //    {
+        //        dbconn.Open();
+        //        dbcomm = new SqlCommand(String.Format("select Instrument, Type from Instruments order by Type asc"), dbconn);
+        //        dbreader = dbcomm.ExecuteReader();
+        //        List<Instrument> instruments = new List<Instrument>();
+        //        while (dbreader.Read())
+        //        {
+        //            string instrumentName = dbreader["Instrument"].ToString();
+        //            Section instrumentType;
+        //            if (Enum.TryParse<Section>(dbreader["Type"].ToString(), true, out instrumentType))
+        //                instruments.Add(new Instrument(instrumentName, instrumentType));
+        //            else
+        //                instruments.Add(new Instrument());
+        //        }
+        //        dbconn.Close();
+        //        return instruments;
+        //    }
+        //}
     }
 }

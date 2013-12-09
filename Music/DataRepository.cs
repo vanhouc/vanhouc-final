@@ -17,7 +17,7 @@ namespace Music
     /// </summary>
     public class DataRepository
     {
-        SqlConnection dbconn = new SqlConnection(Music.Properties.Settings.Default.orchestraConnection);
+        SqlConnection dbconn;
         SqlCommand dbcomm;
         SqlDataReader dbreader;
         /// <summary>
@@ -27,34 +27,22 @@ namespace Music
         /// <returns></returns>
         public List<Instrument> GetInstruments(Section selectedSection)
         {
-            using (dbconn)
+            using (dbconn = new SqlConnection(Music.Properties.Settings.Default.orchestraConnection))
             {
-                dbcomm = new SqlCommand("select Instrument, Type from Instruments where Type = " + selectedSection.ToString() + " order by asc", dbconn);
+                dbconn.Open();
+                dbcomm = new SqlCommand("select Instrument, Type from Instruments where Type = " + "'" + selectedSection.ToString() + "'" + " order by Type asc", dbconn);
                 dbreader = dbcomm.ExecuteReader();
                 List<Instrument> instruments = new List<Instrument>();
                 while (dbreader.Read())
                 {
                     string instrumentName = dbreader["Instrument"].ToString();
                     Section instrumentType;
-                    switch (dbreader["Type"].ToString())
-                    {
-                        case "String":
-                            instrumentType = Section.String;
-                            break;
-                        case "Woodwind":
-                            instrumentType = Section.Woodwind;
-                            break;
-                        case "Brass":
-                            instrumentType = Section.Brass;
-                            break;
-                        case "Percussion":
-                            instrumentType = Section.Percussion;
-                            break;
-                        default:
-                            throw new ArgumentException("Invalid type detected: " + dbreader["Type"].ToString());
-                    }
-                    instruments.Add(new Instrument(instrumentName, instrumentType));
+                    if (Enum.TryParse<Section>(dbreader["Type"].ToString(), true, out instrumentType))
+                        instruments.Add(new Instrument(instrumentName, instrumentType));
+                    else
+                        instruments.Add(new Instrument());
                 }
+                dbconn.Close();
                 return instruments;
             }
         }

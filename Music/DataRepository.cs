@@ -57,7 +57,7 @@ namespace Music
             {
                 dbconn.Open();
                 //This command creates a sql string that checks for instruments of a type contained in the parameter list which is created by using a string join and some string formats
-                dbcomm = new SqlCommand(String.Format("select Instrument, Type from Instruments where Type in({0}) order by Type asc", String.Join(",",selectedSection.Select(x => String.Format("'{0}'",x.ToString())).ToArray())), dbconn);
+                dbcomm = new SqlCommand(String.Format("select Instrument, Type from Instruments where Type in({0}) order by Instrument asc", String.Join(",",selectedSection.Select(x => String.Format("'{0}'",x.ToString())).ToArray())), dbconn);
                 dbreader = dbcomm.ExecuteReader();
                 List<Instrument> instruments = new List<Instrument>();
                 while (dbreader.Read())

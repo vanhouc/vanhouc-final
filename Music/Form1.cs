@@ -1,4 +1,7 @@
-﻿using System;
+﻿//By: Cameron VanHouzen
+//Date: 12/9/2013
+//Main UI form of the program
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,9 +13,15 @@ using System.Windows.Forms;
 
 namespace Music
 {
+    /// <summary>
+    /// Form contains all UI for interacting with music program
+    /// </summary>
     public partial class Form1 : Form
     {
         DataRepository repo;
+        /// <summary>
+        /// Initializes the form on start-up
+        /// </summary>
         public Form1()
         {
             InitializeComponent();
@@ -28,7 +37,11 @@ namespace Music
                 grpTypes.Controls.Add(newCheck);
             }
         }
-
+        /// <summary>
+        /// Causes listbox to refresh when a new item is checked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void newCheck_CheckedChanged(object sender, EventArgs e)
         {
             string[] selectedNames = grpTypes.Controls.OfType<CheckBox>().Where(x => x.Checked).Select(x => x.Text).ToArray();
@@ -36,6 +49,18 @@ namespace Music
                 Section[] selectedSection = selectedNames.Select(x => (Section)Enum.Parse(typeof(Section), x)).ToArray();
                 listBox1.Items.Clear();
                 listBox1.Items.AddRange(repo.GetInstruments(selectedSection).Select(x => x.ToString()).ToArray());
+            }
+        }
+        /// <summary>
+        /// Causes all checkboxes in grpTypes to be checked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnSlctAll_Click(object sender, EventArgs e)
+        {
+            foreach (CheckBox chk in grpTypes.Controls.OfType<CheckBox>())
+            {
+                chk.Checked = true;
             }
         }
     }

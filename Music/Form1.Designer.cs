@@ -71,6 +71,7 @@
             // 
             // btnSlctAll
             // 
+            this.btnSlctAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnSlctAll.Location = new System.Drawing.Point(12, 425);
             this.btnSlctAll.Name = "btnSlctAll";
             this.btnSlctAll.Size = new System.Drawing.Size(75, 23);
@@ -81,12 +82,14 @@
             // 
             // btnClearSlct
             // 
+            this.btnClearSlct.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnClearSlct.Location = new System.Drawing.Point(93, 425);
             this.btnClearSlct.Name = "btnClearSlct";
             this.btnClearSlct.Size = new System.Drawing.Size(75, 23);
             this.btnClearSlct.TabIndex = 5;
             this.btnClearSlct.Text = "Deselect All";
             this.btnClearSlct.UseVisualStyleBackColor = true;
+            this.btnClearSlct.Click += new System.EventHandler(this.btnClearSlct_Click);
             // 
             // Form1
             // 

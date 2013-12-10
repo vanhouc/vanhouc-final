@@ -27,7 +27,8 @@ namespace Music
             InitializeComponent();
             repo = new DataRepository();
             int locationY = 20;
-            foreach(string s in Enum.GetNames(typeof(Section)))
+            //Creates a checkbox for each value in the Section Enum
+            foreach (string s in Enum.GetNames(typeof(Section)))
             {
                 CheckBox newCheck = new CheckBox();
                 newCheck.Text = s;
@@ -44,11 +45,19 @@ namespace Music
         /// <param name="e"></param>
         private void newCheck_CheckedChanged(object sender, EventArgs e)
         {
+            //This statement creates a list of the text values of all checked boxes in grpTypes
             string[] selectedNames = grpTypes.Controls.OfType<CheckBox>().Where(x => x.Checked).Select(x => x.Text).ToArray();
+            if (selectedNames.Count() > 0)
             {
+                //Here is where the magic happens, the strings are parsed into their representative Enum types, no try-catch is needed since the text is bound from the enums in the first place
                 Section[] selectedSection = selectedNames.Select(x => (Section)Enum.Parse(typeof(Section), x)).ToArray();
                 lstbxInstruments.Items.Clear();
                 lstbxInstruments.Items.AddRange(repo.GetInstruments(selectedSection).Select(x => x.ToString()).ToArray());
+            }
+            else
+            {
+                lstbxInstruments.Items.Clear();
+                lstbxInstruments.Items.Add("Please select a type to display some instruments");
             }
         }
         /// <summary>
@@ -61,6 +70,14 @@ namespace Music
             foreach (CheckBox chk in grpTypes.Controls.OfType<CheckBox>())
             {
                 chk.Checked = true;
+            }
+        }
+
+        private void btnClearSlct_Click(object sender, EventArgs e)
+        {
+            foreach (CheckBox chk in grpTypes.Controls.OfType<CheckBox>())
+            {
+                chk.Checked = false;
             }
         }
     }

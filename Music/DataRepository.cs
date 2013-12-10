@@ -56,6 +56,7 @@ namespace Music
             using (dbconn = new SqlConnection(Music.Properties.Settings.Default.orchestraConnection))
             {
                 dbconn.Open();
+                //This command creates a sql string that checks for instruments of a type contained in the parameter list which is created by using a string join and some string formats
                 dbcomm = new SqlCommand(String.Format("select Instrument, Type from Instruments where Type in({0}) order by Type asc", String.Join(",",selectedSection.Select(x => String.Format("'{0}'",x.ToString())).ToArray())), dbconn);
                 dbreader = dbcomm.ExecuteReader();
                 List<Instrument> instruments = new List<Instrument>();
@@ -63,6 +64,7 @@ namespace Music
                 {
                     string instrumentName = dbreader["Instrument"].ToString();
                     Section instrumentType;
+                    //This sneaky little section tries to parse the instrument value of the instrument by using the Enum.TryParse which returns a bool, if false there is a bad type and a default instrument replaces it
                     if (Enum.TryParse<Section>(dbreader["Type"].ToString(), true, out instrumentType))
                         instruments.Add(new Instrument(instrumentName, instrumentType));
                     else

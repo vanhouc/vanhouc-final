@@ -34,6 +34,7 @@
             this.btnSlctAll = new System.Windows.Forms.Button();
             this.btnClearSlct = new System.Windows.Forms.Button();
             this.lblQueryCounter = new System.Windows.Forms.Label();
+            this.btnQuit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblAppTitle
@@ -57,7 +58,7 @@
             this.lstbxInstruments.Location = new System.Drawing.Point(193, 67);
             this.lstbxInstruments.Name = "lstbxInstruments";
             this.lstbxInstruments.Size = new System.Drawing.Size(334, 381);
-            this.lstbxInstruments.TabIndex = 2;
+            this.lstbxInstruments.TabIndex = 4;
             // 
             // grpTypes
             // 
@@ -66,7 +67,7 @@
             this.grpTypes.Location = new System.Drawing.Point(12, 61);
             this.grpTypes.Name = "grpTypes";
             this.grpTypes.Size = new System.Drawing.Size(175, 358);
-            this.grpTypes.TabIndex = 3;
+            this.grpTypes.TabIndex = 1;
             this.grpTypes.TabStop = false;
             this.grpTypes.Text = "Types";
             // 
@@ -76,7 +77,7 @@
             this.btnSlctAll.Location = new System.Drawing.Point(12, 425);
             this.btnSlctAll.Name = "btnSlctAll";
             this.btnSlctAll.Size = new System.Drawing.Size(75, 23);
-            this.btnSlctAll.TabIndex = 4;
+            this.btnSlctAll.TabIndex = 2;
             this.btnSlctAll.Text = "Select All";
             this.btnSlctAll.UseVisualStyleBackColor = true;
             this.btnSlctAll.Click += new System.EventHandler(this.btnSlctAll_Click);
@@ -87,7 +88,7 @@
             this.btnClearSlct.Location = new System.Drawing.Point(93, 425);
             this.btnClearSlct.Name = "btnClearSlct";
             this.btnClearSlct.Size = new System.Drawing.Size(75, 23);
-            this.btnClearSlct.TabIndex = 5;
+            this.btnClearSlct.TabIndex = 3;
             this.btnClearSlct.Text = "Deselect All";
             this.btnClearSlct.UseVisualStyleBackColor = true;
             this.btnClearSlct.Click += new System.EventHandler(this.btnClearSlct_Click);
@@ -98,15 +99,28 @@
             this.lblQueryCounter.Location = new System.Drawing.Point(190, 451);
             this.lblQueryCounter.Name = "lblQueryCounter";
             this.lblQueryCounter.Size = new System.Drawing.Size(113, 13);
-            this.lblQueryCounter.TabIndex = 6;
+            this.lblQueryCounter.TabIndex = 5;
             this.lblQueryCounter.Tag = "0";
             this.lblQueryCounter.Text = "Number of Queries: [0]";
+            // 
+            // btnQuit
+            // 
+            this.btnQuit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnQuit.Location = new System.Drawing.Point(430, 481);
+            this.btnQuit.Name = "btnQuit";
+            this.btnQuit.Size = new System.Drawing.Size(97, 23);
+            this.btnQuit.TabIndex = 6;
+            this.btnQuit.Text = "Close Application";
+            this.btnQuit.UseVisualStyleBackColor = true;
+            this.btnQuit.Click += new System.EventHandler(this.btnQuit_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnQuit;
             this.ClientSize = new System.Drawing.Size(549, 516);
+            this.Controls.Add(this.btnQuit);
             this.Controls.Add(this.lblQueryCounter);
             this.Controls.Add(this.btnClearSlct);
             this.Controls.Add(this.btnSlctAll);
@@ -128,6 +142,7 @@
         private System.Windows.Forms.Button btnSlctAll;
         private System.Windows.Forms.Button btnClearSlct;
         private System.Windows.Forms.Label lblQueryCounter;
+        private System.Windows.Forms.Button btnQuit;
     }
 }
 

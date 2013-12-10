@@ -82,5 +82,10 @@ namespace Music
                 chk.Checked = false;
             }
         }
+
+        private void btnQuit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

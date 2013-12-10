@@ -33,6 +33,7 @@
             this.grpTypes = new System.Windows.Forms.GroupBox();
             this.btnSlctAll = new System.Windows.Forms.Button();
             this.btnClearSlct = new System.Windows.Forms.Button();
+            this.lblQueryCounter = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblAppTitle
@@ -91,11 +92,22 @@
             this.btnClearSlct.UseVisualStyleBackColor = true;
             this.btnClearSlct.Click += new System.EventHandler(this.btnClearSlct_Click);
             // 
+            // lblQueryCounter
+            // 
+            this.lblQueryCounter.AutoSize = true;
+            this.lblQueryCounter.Location = new System.Drawing.Point(190, 451);
+            this.lblQueryCounter.Name = "lblQueryCounter";
+            this.lblQueryCounter.Size = new System.Drawing.Size(113, 13);
+            this.lblQueryCounter.TabIndex = 6;
+            this.lblQueryCounter.Tag = "0";
+            this.lblQueryCounter.Text = "Number of Queries: [0]";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(549, 516);
+            this.Controls.Add(this.lblQueryCounter);
             this.Controls.Add(this.btnClearSlct);
             this.Controls.Add(this.btnSlctAll);
             this.Controls.Add(this.grpTypes);
@@ -115,6 +127,7 @@
         private System.Windows.Forms.GroupBox grpTypes;
         private System.Windows.Forms.Button btnSlctAll;
         private System.Windows.Forms.Button btnClearSlct;
+        private System.Windows.Forms.Label lblQueryCounter;
     }
 }
 

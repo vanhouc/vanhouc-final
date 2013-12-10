@@ -49,6 +49,8 @@ namespace Music
             string[] selectedNames = grpTypes.Controls.OfType<CheckBox>().Where(x => x.Checked).Select(x => x.Text).ToArray();
             if (selectedNames.Count() > 0)
             {
+                lblQueryCounter.Tag = Convert.ToInt32(lblQueryCounter.Tag) + 1;
+                lblQueryCounter.Text = String.Format("Number of Queries: [{0}]", Convert.ToInt32(lblQueryCounter.Tag));
                 //Here is where the magic happens, the strings are parsed into their representative Enum types, no try-catch is needed since the text is bound from the enums in the first place
                 Section[] selectedSection = selectedNames.Select(x => (Section)Enum.Parse(typeof(Section), x)).ToArray();
                 lstbxInstruments.Items.Clear();

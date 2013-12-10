@@ -47,8 +47,8 @@ namespace Music
             string[] selectedNames = grpTypes.Controls.OfType<CheckBox>().Where(x => x.Checked).Select(x => x.Text).ToArray();
             {
                 Section[] selectedSection = selectedNames.Select(x => (Section)Enum.Parse(typeof(Section), x)).ToArray();
-                listBox1.Items.Clear();
-                listBox1.Items.AddRange(repo.GetInstruments(selectedSection).Select(x => x.ToString()).ToArray());
+                lstbxInstruments.Items.Clear();
+                lstbxInstruments.Items.AddRange(repo.GetInstruments(selectedSection).Select(x => x.ToString()).ToArray());
             }
         }
         /// <summary>

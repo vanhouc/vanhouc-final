@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.lblAppTitle = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.lstbxInstruments = new System.Windows.Forms.ListBox();
             this.grpTypes = new System.Windows.Forms.GroupBox();
             this.btnSlctAll = new System.Windows.Forms.Button();
             this.btnClearSlct = new System.Windows.Forms.Button();
@@ -40,23 +40,23 @@
             this.lblAppTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblAppTitle.AutoSize = true;
-            this.lblAppTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAppTitle.Location = new System.Drawing.Point(188, 9);
+            this.lblAppTitle.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAppTitle.Location = new System.Drawing.Point(213, 9);
             this.lblAppTitle.Name = "lblAppTitle";
-            this.lblAppTitle.Size = new System.Drawing.Size(69, 25);
+            this.lblAppTitle.Size = new System.Drawing.Size(68, 30);
             this.lblAppTitle.TabIndex = 0;
             this.lblAppTitle.Text = "Music";
             // 
-            // listBox1
+            // lstbxInstruments
             // 
-            this.listBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.lstbxInstruments.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(193, 67);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(334, 381);
-            this.listBox1.TabIndex = 2;
+            this.lstbxInstruments.FormattingEnabled = true;
+            this.lstbxInstruments.Location = new System.Drawing.Point(193, 67);
+            this.lstbxInstruments.Name = "lstbxInstruments";
+            this.lstbxInstruments.Size = new System.Drawing.Size(334, 381);
+            this.lstbxInstruments.TabIndex = 2;
             // 
             // grpTypes
             // 
@@ -96,7 +96,7 @@
             this.Controls.Add(this.btnClearSlct);
             this.Controls.Add(this.btnSlctAll);
             this.Controls.Add(this.grpTypes);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.lstbxInstruments);
             this.Controls.Add(this.lblAppTitle);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -108,7 +108,7 @@
         #endregion
 
         private System.Windows.Forms.Label lblAppTitle;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox lstbxInstruments;
         private System.Windows.Forms.GroupBox grpTypes;
         private System.Windows.Forms.Button btnSlctAll;
         private System.Windows.Forms.Button btnClearSlct;

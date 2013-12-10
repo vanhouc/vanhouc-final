@@ -1,6 +1,6 @@
 ﻿namespace Music
 {
-    partial class Form1
+    partial class frmMain
     {
         /// <summary>
         /// Required designer variable.
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.lblAppTitle = new System.Windows.Forms.Label();
             this.lstbxInstruments = new System.Windows.Forms.ListBox();
             this.grpTypes = new System.Windows.Forms.GroupBox();
@@ -54,16 +55,19 @@
             this.lstbxInstruments.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.lstbxInstruments.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstbxInstruments.FormattingEnabled = true;
+            this.lstbxInstruments.ItemHeight = 18;
             this.lstbxInstruments.Location = new System.Drawing.Point(193, 67);
             this.lstbxInstruments.Name = "lstbxInstruments";
-            this.lstbxInstruments.Size = new System.Drawing.Size(334, 381);
+            this.lstbxInstruments.Size = new System.Drawing.Size(334, 364);
             this.lstbxInstruments.TabIndex = 4;
             // 
             // grpTypes
             // 
             this.grpTypes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.grpTypes.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpTypes.Location = new System.Drawing.Point(12, 61);
             this.grpTypes.Name = "grpTypes";
             this.grpTypes.Size = new System.Drawing.Size(175, 358);
@@ -74,6 +78,7 @@
             // btnSlctAll
             // 
             this.btnSlctAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnSlctAll.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSlctAll.Location = new System.Drawing.Point(12, 425);
             this.btnSlctAll.Name = "btnSlctAll";
             this.btnSlctAll.Size = new System.Drawing.Size(75, 23);
@@ -85,6 +90,7 @@
             // btnClearSlct
             // 
             this.btnClearSlct.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnClearSlct.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClearSlct.Location = new System.Drawing.Point(93, 425);
             this.btnClearSlct.Name = "btnClearSlct";
             this.btnClearSlct.Size = new System.Drawing.Size(75, 23);
@@ -96,9 +102,10 @@
             // lblQueryCounter
             // 
             this.lblQueryCounter.AutoSize = true;
-            this.lblQueryCounter.Location = new System.Drawing.Point(190, 451);
+            this.lblQueryCounter.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQueryCounter.Location = new System.Drawing.Point(190, 435);
             this.lblQueryCounter.Name = "lblQueryCounter";
-            this.lblQueryCounter.Size = new System.Drawing.Size(113, 13);
+            this.lblQueryCounter.Size = new System.Drawing.Size(130, 14);
             this.lblQueryCounter.TabIndex = 5;
             this.lblQueryCounter.Tag = "0";
             this.lblQueryCounter.Text = "Number of Queries: [0]";
@@ -106,15 +113,16 @@
             // btnQuit
             // 
             this.btnQuit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnQuit.Location = new System.Drawing.Point(430, 481);
+            this.btnQuit.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQuit.Location = new System.Drawing.Point(417, 481);
             this.btnQuit.Name = "btnQuit";
-            this.btnQuit.Size = new System.Drawing.Size(97, 23);
+            this.btnQuit.Size = new System.Drawing.Size(110, 23);
             this.btnQuit.TabIndex = 6;
             this.btnQuit.Text = "Close Application";
             this.btnQuit.UseVisualStyleBackColor = true;
             this.btnQuit.Click += new System.EventHandler(this.btnQuit_Click);
             // 
-            // Form1
+            // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -127,7 +135,8 @@
             this.Controls.Add(this.grpTypes);
             this.Controls.Add(this.lstbxInstruments);
             this.Controls.Add(this.lblAppTitle);
-            this.Name = "Form1";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "frmMain";
             this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();

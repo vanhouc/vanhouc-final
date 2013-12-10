@@ -1,6 +1,7 @@
 ﻿//By: Cameron VanHouzen
 //Date: 12/9/2013
 //Main UI form of the program
+//ITS THE FINAL EXAM da-da-da da du-du-da-da da da-da-da da bum-bum-ba-dum bum bum bum bum da-da-da da-da-da-da-da-da bum bum da-da-da-da-da
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,13 +17,13 @@ namespace Music
     /// <summary>
     /// Form contains all UI for interacting with music program
     /// </summary>
-    public partial class Form1 : Form
+    public partial class frmMain : Form
     {
         DataRepository repo;
         /// <summary>
         /// Initializes the form on start-up
         /// </summary>
-        public Form1()
+        public frmMain()
         {
             InitializeComponent();
             repo = new DataRepository();
@@ -74,7 +75,11 @@ namespace Music
                 chk.Checked = true;
             }
         }
-
+        /// <summary>
+        /// Causes all checkboxes in grpTypes to be unchecked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnClearSlct_Click(object sender, EventArgs e)
         {
             foreach (CheckBox chk in grpTypes.Controls.OfType<CheckBox>())
@@ -82,7 +87,11 @@ namespace Music
                 chk.Checked = false;
             }
         }
-
+        /// <summary>
+        /// Closes the application
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnQuit_Click(object sender, EventArgs e)
         {
             Application.Exit();
